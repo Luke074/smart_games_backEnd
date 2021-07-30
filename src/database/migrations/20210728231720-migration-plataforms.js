@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    queryInterface.createTable("store", {
+    queryInterface.createTable("plataforms", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -14,16 +14,16 @@ module.exports = {
       },
       created_at: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: true,
       },
       updated_at: {
         type: Sequelize.DATE,
-        allowNull: false,
-      },
+        allowNull: true,
+      }
     });
   },
 
   down: async (queryInterface, Sequelize) => {
-    queryInterface.dropTable("store");
-  }
+    queryInterface.dropTable("plataforms");
+  },
 };

@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 
-class Store extends Model {
+class Stores extends Model {
     static init(sequelize) {
         super.init(
             {
@@ -12,12 +12,12 @@ class Store extends Model {
         )
     }
 
-    static associations(models) {
-        this.belongsToMany(models.Game, {
-            through: "game_store",
+    static associate(models) {
+        this.belongsToMany(models.Games, {
+            through: "game_stores",
             foreignKey: "store_id"
         });
     }
 }
 
-module.exports = Store;
+module.exports = Stores;

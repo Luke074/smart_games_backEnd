@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 
-class Plataform extends Model {
+class Plataforms extends Model {
     static init(sequelize) {
         super.init(
             {
@@ -12,12 +12,12 @@ class Plataform extends Model {
         )
     }
 
-    static associations(models) {
-        this.belongsToMany(models.Game, {
-            through: "game_plataform",
+    static associate(models) {
+        this.belongsToMany(models.Games, {
+            through: "games_plataforms",
             foreignKey: "plataform_id"
         });
     }
 }
 
-module.exports = Plataform;
+module.exports = Plataforms;

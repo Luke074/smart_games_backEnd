@@ -1,23 +1,23 @@
-"use strict";
+'use strict';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    queryInterface.createTable("game_plataform", {
+    queryInterface.createTable("games_stores", {
       game_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "game",
+          model: "games",
           key: "id",
         },
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
       },
-      platafrom_id: {
+      store_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "plataform",
+          model: "stores",
           key: "id",
         },
         onUpdate: "CASCADE",
@@ -25,16 +25,16 @@ module.exports = {
       },
       created_at: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: true,
       },
       updated_at: {
         type: Sequelize.DATE,
-        allowNull: false,
-      },
+        allowNull: true,
+      }
     });
   },
 
   down: async (queryInterface, Sequelize) => {
-    queryInterface.dropTable("game_plataform");
-  },
+    queryInterface.dropTable("games_stores")
+  }
 };

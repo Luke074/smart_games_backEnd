@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 
-class Game extends Model {
+class Games extends Model {
     static init(sequelize) {
         super.init(
             {
@@ -15,16 +15,16 @@ class Game extends Model {
         )
     }
 
-    static associations(models) {
-        this.belongsToMany(models.Store, {
-            through: "game_store",
+    static associate(models) {
+        this.belongsToMany(models.Stores, {
+            through: "games_stores",
             foreignKey: "game_id"
         });
-        this.belongsToMany(models.Plataform, {
-            through: "game_plataform",
+        this.belongsToMany(models.Plataforms, {
+            through: "games_plataforms",
             foreignKey: "game_id"
         });
     }
 }
 
-module.exports = Game;
+module.exports = Games;
